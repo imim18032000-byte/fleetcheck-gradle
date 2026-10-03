@@ -68,3 +68,10 @@ Depois de definir o `Main-Class` no manifest e de incluir as dependências de ru
 
 ## Passo 8.4: 
 o Gradle Wrapper removeu o pressuposto de ter o Gradle instalado na máquina, e na versão certa. O gradlew descarrega e usa a versão definida em gradle/wrapper/gradle-wrapper.properties.
+
+## Evidence 8.5
+https://github.com/imim18032000-byte/fleetcheck-gradle/actions/runs/37154808638
+
+## Evidence 8.6
+
+O SBOM do Gradle (`build/reports/cyclonedx/bom.json`) contém o `jackson-databind`, o `jackson-core` e o `jackson-annotations`. Eu só declarei o `jackson-databind` no `build.gradle`; os outros dois são dependências transitivas dele, que o Gradle resolve automaticamente. O SBOM lista o grafo completo de dependências usadas pela aplicação, e não apenas as que escrevi.
